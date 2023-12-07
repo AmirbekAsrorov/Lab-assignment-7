@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+# include "cmath"
+using namespace std;
+
+int enc(char a, int k){
+    int charValue=static_cast<int>(a); 
+    int encodedValue=charValue-(charValue * 0.7);    
+    return encodedValue-k; 
+}
+int main(){
+    char password[8];  //(let  c=password[8])
+    int key;
+    cout<<"Enter 8 characters: ";
+    for(int i = 0; i < 8; i++){
+        cin>>password[i];
+    }
+    srand(time(0));
+    key=rand()%91+10;
+    cout<<"Encrypted code: ";
+    for (int i = 0; i < 8; i++){
+        int encodedValue=enc(password[i], key);
+        cout<<encodedValue<<" ";
+    }
+    cout<<"\nKEY: "<<key<<endl;
+    return 0;
+}
