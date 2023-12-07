@@ -1,0 +1,30 @@
+#include <iostream>
+#include "camth"
+using namespace std;
+
+double avgOfEvenPlaces(int n){
+    int sum=0;
+    int count=0;
+    int digitPosition=0;
+    while(n>0){
+        digitPosition++;
+        int digit=n % 10;
+        n /= 10;
+        if(digitPosition % 2 == 0){
+            sum += digit;
+            count++;
+        }
+    }
+    if (count==0){
+        return 0.0;  
+}
+    return static_cast<double>(sum) / count;
+}
+int main(){
+    int num;
+    cout << "Enter an integer: ";
+    cin >> num;
+    double average=avgOfEvenPlaces(num);
+    cout<<"Average of digits in even places: "<<average<<endl;
+    return 0;
+}
