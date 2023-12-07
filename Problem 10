@@ -1,0 +1,19 @@
+#include <iostream>
+#include "cmath"
+using namespace std;
+
+void revChar(char& c){
+    if (islower(c)){
+        c = toupper(c);
+    } else if (isupper(c)){
+        c = tolower(c);
+    }
+}
+int main(){
+    char c;
+    cout<<"Enter a character: ";
+    cin>>c;
+    revChar(c);
+    cout<<"Reversed character: "<<c<<endl;
+    return 0;
+}
