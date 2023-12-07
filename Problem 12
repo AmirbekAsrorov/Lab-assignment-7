@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+ 
+double sqrt(double n){
+    double lastGuess=1.0;
+    double nextGuess=(lastGuess+(n/lastGuess))/2.0;
+    while(abs(nextGuess-lastGuess)>=0.0001){
+        lastGuess=nextGuess;
+        nextGuess=(lastGuess+(n/lastGuess))/2.0;
+    }
+    return nextGuess;
+}
+int main(){
+    int num;
+    cout<<"Enter a number: ";
+    cin>>num;
+    double result=sqrt(num);
+    cout<<"Square root: "<<result<<endl;
+    return 0;
+}
