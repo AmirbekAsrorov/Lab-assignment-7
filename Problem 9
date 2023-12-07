@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+#include "cmath"
+using namespace std;
+
+int octal2Dec(const int& octalNumber){
+    int decimalNumber=0;
+    int base=1;
+    int tempOctal=octalNumber;
+    while(tempOctal!=0){
+        int lastDigit=tempOctal%10;
+        decimalNumber+=lastDigit*base;
+        base*=8;
+        tempOctal/=10;
+    }
+    return decimalNumber;
+}
+int main(){
+    string octalStr;
+    cout<<"Enter an octal number: ";
+    cin>>octalStr;
+    int octalNumber=stoi(octalStr);
+    int decimalNumber=octal2Dec(octalNumber);
+    cout<<"Decimal equivalent: "<<decimalNumber<<endl;
+    return 0;
+}
